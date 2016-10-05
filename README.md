@@ -10,4 +10,5 @@ Este proyecto es parte del Curso de Symfony dictado en el mes de octubre en FaCE
 
 Dictantes:
 Lic. Andrea Berenice Lencina - aberenice.lencina@gmail.com
+
 Lic. Yanina Medina
