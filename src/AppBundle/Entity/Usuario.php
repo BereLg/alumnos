@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\DiscriminatorMap({"usuario" = "Usuario", "alumno" = "Alumno"})
  * 
  */
-class Usuario //extends BaseUser //@ORM\Table(name="usuario")
+class Usuario extends BaseUser
 {
     /**
      * @ORM\Id
