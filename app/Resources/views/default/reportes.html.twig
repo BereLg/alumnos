@@ -1,0 +1,14 @@
+{% extends 'base.html.twig'%}
+{% block title %}Reportes{% endblock %}
+{% block body %}
+	<h3>{{ block('title') }}</h3>
+	<div>
+		<h4>Cantidad de alumnos y alumnas</h4>
+		<div id="cantAlumnos" >
+		<div>
+			<label>Alumnas:</label>
+			<span>{# {alumnos|length} #}</span>
+		</div>
+		</div>
+	</div>
+{% endblock %}
