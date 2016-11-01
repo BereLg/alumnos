@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block title %}Mi Curso{% endblock %}
+{% block body %}
+	<div class="titulo">{{ block('title')}} | {{ app.user.nombre }}</div>
+	{% include 'curso/showContent.html.twig'%}
+    <ul>
+        <li>
+            <a href="{{ path('perfil') }}">Volver</a>
+        </li>
+    </ul>
+{% endblock %}

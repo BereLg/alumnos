@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+{% block title %}Curso{% endblock %}
+{% block body %}
+	<div class="titulo">Listado de {{ block('title') }}s</div>
+	<br/>
+	<div class="tabla">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Año</th>
+                <th>División</th>
+                <th>Ciclo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for curso in cursos %}
+            <tr>
+                <td><a href="{{ path('curso_show', { 'id': curso.id }) }}">{{ curso.id }}</a></td>
+                <td>{{ curso.anio }}</td>
+                <td>{{ curso.division }}</td>
+                <td>{{ curso.ciclo }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('curso_show', { 'id': curso.id }) }}">Mostrar</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('curso_edit', { 'id': curso.id }) }}">Editar</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+	</div>
+    <ul>
+        <li>
+            <a href="{{ path('curso_new') }}">Crear un nuevo curso</a>
+        </li>
+    </ul>
+{% endblock %}

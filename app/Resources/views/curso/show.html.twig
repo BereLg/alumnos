@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block title %}Curso{% endblock %}
+{% block body %}
+	<div class="titulo">{{ block('title') }}</div>
+	{% include 'curso/showContent.html.twig'%}
+    <ul>
+        <li>
+            <a href="{{ path('curso_index') }}">Volver</a>
+        </li>
+		<li>
+            <a href="{{ path('curso_edit', { 'id': curso.id }) }}">Editar</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Borrar">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

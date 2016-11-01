@@ -1,0 +1,14 @@
+<table>
+	<thead>
+	{% for c in cabeceras %}
+		<th>{{c}}</th>
+	{% endfor %}
+	</thead>
+	<tbody>
+		<tr>
+			{% for c in contenido %}
+			<td>{{ c }}</td>
+			{% endfor %}
+		</tr>
+	</tbody>
+</table>

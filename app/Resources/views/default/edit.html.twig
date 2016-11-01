@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block title %}Editar mis datos{% endblock %}
+{% block body %}
+	<div class="titulo">{{ block('title') }}</div>
+	<div class="formulario">
+    {{ form_start(form) }}
+	<div>
+        {{ form_errors(form.nombre) }}
+        {{ form_widget(form.nombre, {'attr': {'placeholder': 'Apellido y Nombre'}}) }}
+    </div>
+	<div>
+        {{ form_errors(form.email) }}
+        {{ form_widget(form.email, {'attr': {'type': 'email', 'placeholder': 'Email'}}) }}
+	</div>
+	<div>
+        {{ form_errors(form.username) }}
+        {{ form_widget(form.username, {'attr': {'placeholder': 'Nombre de usuario'}}) }}
+    </div>
+	<div>
+        {{ form_errors(form.plainPassword) }}
+        {{ form_widget(form.plainPassword, {'attr': {'placeholder': 'Password', 'type':'password', 'value':''}}) }}
+	</div>
+	<div>
+        {# { form_label(form.fechaNacimiento,'Fecha de Nacimiento') } #}
+        {{ form_errors(form.fechaNacimiento) }}
+        {{ form_widget(form.fechaNacimiento, {'attr': {'type': 'date','placeholder':'Fecha de Nacimiento'}}) }}
+    </div>
+    <input type="submit" value="Guardar" />
+    {{ form_end(form) }}
+	</div>
+{% endblock %}

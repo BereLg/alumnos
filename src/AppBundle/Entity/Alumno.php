@@ -106,6 +106,8 @@ class Alumno extends Usuario
 	
 	public function __construct($dni=null, $nombre=null, $fechaNacimiento=null, $sexo=null, $curso=null){
 		parent::__construct($nombre,$fechaNacimiento);
+		$this->setUsername($dni);
+		$this->setPlainPassword($dni);
 		$this->setDni($dni);
 		$this->setCurso($curso);
 		$this->setSexo($sexo);

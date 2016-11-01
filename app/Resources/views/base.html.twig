@@ -2,20 +2,29 @@
 <html>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title>{% block title %}{% endblock %} | Alumnos</title>
+		{% block stylesheets %}{% endblock %}
 		<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 		<link type="text/css" rel="stylesheet" href="{{ asset('css/estilos.css') }}"  media="screen,projection"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	</head>
 	<body>
 		<header class="logo">
 			<div class="center">Gestión de Alumnos</div>
 		</header>
 		<nav>
-			<ul>
-			<li>Ayuda</li>
-			<li>Cursos</li>
-			<li>Alumnos</li>
+		<ul>
+			{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+			<li><a href="{{ path('ayuda') }}">Ayuda</a></li>			
+			{% if is_granted("ROLE_ADMIN") %}
+			<li><a href="{{ path('curso_index') }}">Cursos</a></li>
+			<li><a href="{{ path('alumno_index') }}">Alumnos</a></li>
+			{% endif %}
+			<li><a href="{{ path('perfil') }}">{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</a></li>
+			<li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+			{% else %}
+            <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
+			{% endif %}
 			</ul>
 		</nav>
 		<br/>

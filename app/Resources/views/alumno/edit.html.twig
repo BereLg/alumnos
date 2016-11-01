@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block title %}Editar Alumno{% endblock %}
+{% block body %}
+	<div class="titulo">{{ block('title') }} DNI {{alumno.dni}}</div>
+	<div class="formulario">
+    {{ form_start(form) }}
+	<div>
+        {{ form_errors(form.dni) }}
+        {{ form_widget(form.dni, {'attr': {'placeholder': 'DNI','type': 'number', 'min':'0','max':'99999999'}}) }}
+    </div>
+	<div>
+        {{ form_errors(form.nombre) }}
+        {{ form_widget(form.nombre, {'attr': {'placeholder': 'Apellido y Nombre'}}) }}
+    </div>
+	<div>
+        {{ form_errors(form.email) }}
+        {{ form_widget(form.email, {'attr': {'type': 'email', 'placeholder': 'Email'}}) }}
+	</div>
+	<div>
+        {{ form_errors(form.sexo) }}
+        {{ form_widget(form.sexo, {'attr': {'placeholder': 'Sexo'}}) }}
+	</div>
+	<div>
+        {# { form_label(form.fechaNacimiento,'Fecha de Nacimiento') } #}
+        {{ form_errors(form.fechaNacimiento) }}
+        {{ form_widget(form.fechaNacimiento, {'attr': {'type': 'date','placeholder':'Fecha de Nacimiento'}}) }}
+    </div>
+	<div>
+        {{ form_errors(form.curso) }}
+        {{ form_widget(form.curso, {'attr': {'placeholder': 'Curso'}}) }}
+    </div>
+    <input type="submit" value="Guardar" />
+    {{ form_end(form) }}
+	</div>
+    <ul>
+        <li>
+            <a href="{{ path('alumno_index') }}">Volver</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Borrar">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,26 @@
+<div class="tabla">
+   <table>
+       <tbody>
+           <tr>
+            <th>Id</th>
+			<th>Año</th>
+			<th>División</th>
+			<th>Ciclo</th>
+			<th>Alumnos</th>
+           </tr>
+           <tr>
+               <td>{{ curso.id }}</td>
+               <td>{{ curso.anio }}</td>
+               <td>{{ curso.division }}</td>
+			<td>{{ curso.ciclo }}</td>
+			<td><table>
+			{% for alumno in curso.alumnos %}
+               <tr><td>{{ alumno.nombre }}</td></tr>
+			{% else %}
+			<td>Curso sin alumnos</td>
+			{% endfor %}
+			</table></td>
+           </tr>
+       </tbody>
+   </table>
+</div>
